@@ -11,7 +11,7 @@ execute "apt-update" do
 end
 
 execute "apt-upgrade" do
-  command "apt-get -y upgrade"
+  command 'DEBIAN_FRONTEND=noninteractive apt-get -fuy -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade'
   action :nothing
 end
 
